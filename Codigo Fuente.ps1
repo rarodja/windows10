@@ -15,6 +15,7 @@ Get-AppxPackage *Microsoft.WindowsMaps* | Remove-AppxPackage
 Get-AppxPackage *Microsoft.Messaging* | Remove-AppxPackage
 Get-AppxPackage *Microsoft.MicrosoftSolitaireCollection* | Remove-AppxPackage
 Get-AppxPackage *Microsoft.GetHelp* | Remove-AppxPackage
+Get-AppxPackage *Microsoft.Windows.Photos* | Remove-AppxPackage
 Get-AppxPackage *Microsoft.MicrosoftOfficeHub* | Remove-AppxPackage
 Get-AppxPackage *Microsoft.Office.OneNote* | Remove-AppxPackage
 Get-AppxPackage *Microsoft.MSPaint* | Remove-AppxPackage
@@ -34,6 +35,7 @@ Get-AppxPackage *king.com* | Remove-AppxPackage
 BORRAR CARPETAS Y AJUSTES VARIOS
 --------------------------------------------------
 #>
+Start-Process $Env:USERPROFILE\Documents\OldNewExplorer\OldNewExplorerCfg.exe -Wait
 C:\Windows\SysWOW64\OneDriveSetup.exe -Uninstall
 Remove-Item $Env:APPDATA\Microsoft\Windows\Start*\Programs\System* -Recurse -Force
 Remove-Item C:\ProgramData\Microsoft\Windows\Start*\Programs\System* -Recurse -Force
@@ -45,6 +47,8 @@ PowerCFG -Change STANDBY-TIMEOUT-AC 0
 AJUSTES DEL REGISTRO DE WINDOWS
 --------------------------------------------------
 #>
+#HABILITAR EL VISOR DE IMAGENES CLASICO
+REG IMPORT $Env:USERPROFILE\Documents\Visor_Clasico.reg
 #OCULTAR CUADRO DE BUSQUEDA
 REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\Search' -V SearchboxTaskbarMode -T REG_DWORD -D 0 -F
 #OCULTAR BOTON DE CORTANA DE LA BARRA DE TAREAS
@@ -76,7 +80,8 @@ REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer' -V ShowFrequen
 #MOSTRAR COLOR EN BARRAS DE TITULO Y BORDES DE VENTANA
 REG ADD 'HKCU\Software\Microsoft\Windows\DWM' -V ColorPrevalence -T REG_DWORD -D 1 -F
 #ESTABLECER TEMA CLARO POR DEFECTO
-REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize' -V SystemUsesLightTheme -T REG_DWORD -D 1 -F
+REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize' -V SystemUsesLightTheme -T REG_DWORD -D 0 -F
+REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize' -V AppsUsesLightTheme -T REG_DWORD -D 1 -F
 #MOSTRAR ARCHIVOS DEL USUARIO Y ESTE EQUIPO EN EL ESCRITORIO
 REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel' -V '{59031a47-3f72-44a7-89c5-5595fe6b30ee}' -T REG_DWORD -D 0 -F
 REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel' -V '{20D04FE0-3AEA-1069-A2D8-08002B30309D}' -T REG_DWORD -D 0 -F
