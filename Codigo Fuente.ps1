@@ -149,14 +149,16 @@ REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -V Li
 #OCULTAR DIFERENTES PAGINAS DE OPCIONES EN CONFIGURACION
 REG ADD 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer' -V SettingsPageVisibility -D 'hide:cortana-language;mobile-devices;gaming-gamebar;gaming-gamedvr;gaming-gamemode;gaming-xboxnetworking' -F
 #RUNONCE
-REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce' -V Borrar -D 'C:\\Windows\\System32\\cmd.exe /q /c del /s /q %USERPROFILE%\\Documents\\Windows_Desatendido.exe' -F
+REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce' -V Borrar -D 'C:\Windows\System32\cmd.exe /q /c DEL /q %USERPROFILE%\Documents\Windows_Desatendido.exe' -F
 <#
 --------------------------------------------------
 FINALIZAR Y REINICIAR
 --------------------------------------------------
 #>
-Echo 'Completado! - Es necesario reiniciar el sistema'
-Echo ''
+Clear
+Echo '-----------------------------------------------------'
+Echo '-- COMPLETADO! - ES NECESARIO REINICIAR EL SISTEMA --'
+Echo '-----------------------------------------------------'
 Pause
 Shutdown -R -T 0
 Exit
