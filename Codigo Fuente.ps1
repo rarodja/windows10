@@ -30,6 +30,7 @@ Get-AppxPackage *Microsoft.Microsoft3DViewer* | Remove-AppxPackage
 Get-AppxPackage *Microsoft.XboxApp* | Remove-AppxPackage
 Get-AppxPackage *Microsoft.549981C3F5F10* | Remove-AppxPackage
 Get-AppxPackage *king.com* | Remove-AppxPackage
+Get-AppxPackage *SpotifyAB.SpotifyMusic* | Remove-AppxPackage
 <#
 --------------------------------------------------
 BORRAR CARPETAS Y AJUSTES VARIOS
@@ -48,7 +49,9 @@ AJUSTES DEL REGISTRO DE WINDOWS
 --------------------------------------------------
 #>
 #HABILITAR EL VISOR DE IMAGENES CLASICO
-REG IMPORT $Env:USERPROFILE\Documents\Visor_Clasico.reg
+REG ADD 'HKCR\Applications\photoviewer.dll\shell\open' -V MuiVerb -D '@photoviewer.dll,-3043' -F
+REG ADD 'HKCR\Applications\photoviewer.dll\shell\open\command' -T REG_EXPAND_SZ -D '%SystemRoot%\System32\rundll32.exe \"%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll\", ImageView_Fullscreen %1' -F
+REG ADD 'HKCR\Applications\photoviewer.dll\shell\open\DropTarget' -V Clsid -D '{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}' -F
 #OCULTAR CUADRO DE BUSQUEDA
 REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\Search' -V SearchboxTaskbarMode -T REG_DWORD -D 0 -F
 #OCULTAR BOTON DE CORTANA DE LA BARRA DE TAREAS
@@ -79,7 +82,7 @@ REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandler
 REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer' -V ShowFrequent -T REG_DWORD -D 0 -F
 #MOSTRAR COLOR EN BARRAS DE TITULO Y BORDES DE VENTANA
 REG ADD 'HKCU\Software\Microsoft\Windows\DWM' -V ColorPrevalence -T REG_DWORD -D 1 -F
-#ESTABLECER TEMA CLARO POR DEFECTO
+#ESTABLECER TEMA CLARO Y OSCURO POR DEFECTO
 REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize' -V SystemUsesLightTheme -T REG_DWORD -D 0 -F
 REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize' -V AppsUsesLightTheme -T REG_DWORD -D 1 -F
 #MOSTRAR ARCHIVOS DEL USUARIO Y ESTE EQUIPO EN EL ESCRITORIO
@@ -145,6 +148,8 @@ REG ADD 'HKCU\Control Panel\Desktop' -V DragFullWindows -D 0 -F
 REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -V ListviewAlphaSelect -T REG_DWORD -D 0 -F
 #OCULTAR DIFERENTES PAGINAS DE OPCIONES EN CONFIGURACION
 REG ADD 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer' -V SettingsPageVisibility -D 'hide:cortana-language;mobile-devices;gaming-gamebar;gaming-gamedvr;gaming-gamemode;gaming-xboxnetworking' -F
+#RUNONCE
+REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce' -V Borrar -D 'C:\\Windows\\System32\\cmd.exe /q /c del /s /q %USERPROFILE%\\Documents\\Windows_Desatendido.exe' -F
 <#
 --------------------------------------------------
 FINALIZAR Y REINICIAR
