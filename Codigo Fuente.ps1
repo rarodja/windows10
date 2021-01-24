@@ -159,7 +159,7 @@ REG ADD 'HKCU\Control Panel\Desktop' -V DragFullWindows -D 0 -F
 REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -V ListviewAlphaSelect -T REG_DWORD -D 0 -F
 #OCULTAR DIFERENTES PAGINAS DE OPCIONES EN CONFIGURACION
 REG ADD 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer' -V SettingsPageVisibility -D 'hide:cortana-language;mobile-devices;gaming-gamebar;gaming-gamedvr;gaming-gamemode;gaming-xboxnetworking' -F
-#RUNONCE
+#RUNONCE AL REINICIAR EL SISTEMA
 REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce' -V BorrarTemporales -D 'C:\Windows\System32\cmd.exe /q /c DEL /q %TEMP%' -F
 #ELIMINAR TILES DEL MENU DE INICIO
 REG DELETE 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\CloudStore\Store\Cache\DefaultAccount' /F
