@@ -96,7 +96,6 @@ REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer' -V ShowFrequen
 REG ADD 'HKCU\Software\Microsoft\Windows\DWM' -V ColorPrevalence -T REG_DWORD -D 1 -F
 #ESTABLECER TEMA CLARO Y OSCURO POR DEFECTO
 REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize' -V SystemUsesLightTheme -T REG_DWORD -D 0 -F
-REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize' -V AppsUsesLightTheme -T REG_DWORD -D 1 -F
 #MOSTRAR ARCHIVOS DEL USUARIO Y ESTE EQUIPO EN EL ESCRITORIO
 REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel' -V '{59031a47-3f72-44a7-89c5-5595fe6b30ee}' -T REG_DWORD -D 0 -F
 REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel' -V '{20D04FE0-3AEA-1069-A2D8-08002B30309D}' -T REG_DWORD -D 0 -F
@@ -161,7 +160,9 @@ REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -V Li
 #OCULTAR DIFERENTES PAGINAS DE OPCIONES EN CONFIGURACION
 REG ADD 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer' -V SettingsPageVisibility -D 'hide:cortana-language;mobile-devices;gaming-gamebar;gaming-gamedvr;gaming-gamemode;gaming-xboxnetworking' -F
 #RUNONCE
-REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce' -V Borrar -D 'C:\Windows\System32\cmd.exe /q /c DEL /q %WINDIR%\OldNewExplorer\Windows_Desatendido.exe' -F
+REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce' -V BorrarTemporales -D 'C:\Windows\System32\cmd.exe /q /c DEL /q %TEMP%' -F
+#ELIMINAR TILES DEL MENU DE INICIO
+REG DELETE 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\CloudStore\Store\Cache\DefaultAccount' /F
 <#
 --------------------------------------------------
 FINALIZAR Y REINICIAR
