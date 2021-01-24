@@ -36,8 +36,9 @@ Get-AppxPackage *SpotifyAB.SpotifyMusic* | Remove-AppxPackage
 BORRAR CARPETAS Y AJUSTES VARIOS
 --------------------------------------------------
 #>
-CMD /C REGSVR32 /S %WINDIR%\OldNewExplorer\OldNewExplorer64.dll
-C:\Windows\SysWOW64\OneDriveSetup.exe -Uninstall
+Copy-Item -Path $Env:TEMP\OldNewExplorer64.dll -Destination $Env:WINDIR\Resources -Recurse -Force
+RegSVR32 /S $Env:WINDIR\Resources\OldNewExplorer64.dll
+Start-Process -FilePath $Env:WINDIR\SysWOW64\OneDriveSetup.exe -ArgumentList /Uninstall
 Remove-Item $Env:APPDATA\Microsoft\Windows\Start*\Programs\System* -Recurse -Force
 Remove-Item C:\ProgramData\Microsoft\Windows\Start*\Programs\System* -Recurse -Force
 Remove-Item C:\ProgramData\Microsoft\Windows\Start*\Programs\Administrative* -Recurse -Force
