@@ -36,7 +36,7 @@ Get-AppxPackage *SpotifyAB.SpotifyMusic* | Remove-AppxPackage
 BORRAR CARPETAS Y AJUSTES VARIOS
 --------------------------------------------------
 #>
-Start-Process $Env:USERPROFILE\Documents\OldNewExplorer\OldNewExplorerCfg.exe -Wait
+CMD /C REGSVR32 /S %WINDIR%\OldNewExplorer\OldNewExplorer64.dll
 C:\Windows\SysWOW64\OneDriveSetup.exe -Uninstall
 Remove-Item $Env:APPDATA\Microsoft\Windows\Start*\Programs\System* -Recurse -Force
 Remove-Item C:\ProgramData\Microsoft\Windows\Start*\Programs\System* -Recurse -Force
@@ -48,6 +48,17 @@ PowerCFG -Change STANDBY-TIMEOUT-AC 0
 AJUSTES DEL REGISTRO DE WINDOWS
 --------------------------------------------------
 #>
+#AGREGAR CLAVES DE OLDNEWEXPLORER AL REGISTRO
+REG ADD 'HKCU\SOFTWARE\Tihiy\OldNewExplorer' -V DriveGrouping -T REG_DWORD -D 1 -F
+REG ADD 'HKCU\SOFTWARE\Tihiy\OldNewExplorer' -V HideFolders -T REG_DWORD -D 1 -F
+REG ADD 'HKCU\SOFTWARE\Tihiy\OldNewExplorer' -V NoRibbon -T REG_DWORD -D 1 -F
+REG ADD 'HKCU\SOFTWARE\Tihiy\OldNewExplorer' -V NoCaption -T REG_DWORD -D 1 -F
+REG ADD 'HKCU\SOFTWARE\Tihiy\OldNewExplorer' -V NoIcon -T REG_DWORD -D 1 -F
+REG ADD 'HKCU\SOFTWARE\Tihiy\OldNewExplorer' -V NoUpButton -T REG_DWORD -D 1 -F
+REG ADD 'HKCU\SOFTWARE\Tihiy\OldNewExplorer' -V NavBarGlass -T REG_DWORD -D 1 -F
+REG ADD 'HKCU\SOFTWARE\Tihiy\OldNewExplorer' -V IEButtons -T REG_DWORD -D 1 -F
+REG ADD 'HKCU\SOFTWARE\Tihiy\OldNewExplorer' -V Style -T REG_DWORD -D 1 -F
+REG ADD 'HKCU\SOFTWARE\Tihiy\OldNewExplorer' -V StatusBar -T REG_DWORD -D 1 -F
 #HABILITAR EL VISOR DE IMAGENES CLASICO
 REG ADD 'HKCR\Applications\photoviewer.dll\shell\open' -V MuiVerb -D '@photoviewer.dll,-3043' -F
 REG ADD 'HKCR\Applications\photoviewer.dll\shell\open\command' -T REG_EXPAND_SZ -D '%SystemRoot%\System32\rundll32.exe \"%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll\", ImageView_Fullscreen %1' -F
@@ -149,7 +160,7 @@ REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -V Li
 #OCULTAR DIFERENTES PAGINAS DE OPCIONES EN CONFIGURACION
 REG ADD 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer' -V SettingsPageVisibility -D 'hide:cortana-language;mobile-devices;gaming-gamebar;gaming-gamedvr;gaming-gamemode;gaming-xboxnetworking' -F
 #RUNONCE
-REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce' -V Borrar -D 'C:\Windows\System32\cmd.exe /q /c DEL /q %USERPROFILE%\Documents\Windows_Desatendido.exe' -F
+REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce' -V Borrar -D 'C:\Windows\System32\cmd.exe /q /c DEL /q %WINDIR%\OldNewExplorer\Windows_Desatendido.exe' -F
 <#
 --------------------------------------------------
 FINALIZAR Y REINICIAR
