@@ -64,8 +64,6 @@ REG ADD 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search' -V AllowCortan
 REG ADD 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\UserProfileEngagement' -V ScoobeSystemSettingEnabled -T REG_DWORD -D 0 -F
 #DESACTIVAR EXPERIENCIAS COMPARTIDAS
 REG ADD 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System' -V EnableCdp -T REG_DWORD -D 0 -F
-#DESACTIVAR AGREGAR CUENTAS MICROSOFT
-REG ADD 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System' -V NoConnectedUser -D 1 -F
 #DESACTIVAR REPRODUCCION AUTOMATICA AL CONECTAR UN PENDRIVE
 REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers' -V DisableAutoplay -T REG_DWORD -D 1 -F
 #MOSTRAR CARPETAS FRECUENTEMENTE USADAS EN EL ACCESO RAPIDO DESACTIVADO
