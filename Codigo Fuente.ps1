@@ -88,7 +88,7 @@ REG ADD 'HKCU\Software\Policies\Microsoft\Windows\EdgeUI' -V DisableMFUTracking 
 REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager' -V SubscribedContent-338393Enabled -T REG_DWORD -D 0 -F
 REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager' -V SubscribedContent-353694Enabled -T REG_DWORD -D 0 -F
 REG ADD 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager' -V SubscribedContent-353696Enabled -T REG_DWORD -D 0 -F
-#PERSONALIZACION DE ENTRADA MANUSCRITA Y ESCRITURA DESHABILITADO
+#PERSONALIZACION DE ENTRADA MANUSCRITA Y ESCRITURA DESACTIVADO
 REG ADD 'HKCU\Software\Microsoft\Personalization\Settings' -V AcceptedPrivacyPolicy -T REG_DWORD -D 0 -F
 #SOLICITUD DE LA FRECUENCIA DE COMENTARIOS DESACTIVADO
 REG ADD 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection' -V DoNotShowFeedbackNotifications -T REG_DWORD -D 1 -F
