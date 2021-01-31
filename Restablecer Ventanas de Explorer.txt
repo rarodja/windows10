@@ -1,0 +1,8 @@
+﻿echo "-------------------------------------------------"
+echo "Restablecer Vista de Carpetas en Windows Explorer"
+echo "-------------------------------------------------"
+REG DELETE "HKCU:\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\BagMRU" /F
+REG DELETE "HKCU:\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags" /F
+echo "Completado! - Se recomienda reiniciar el sistema"
+Pause
+Exit
