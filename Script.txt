@@ -27,7 +27,7 @@ RD /Q /S "%APPDATA%\Microsoft\Windows\Start Menu\Programs\System Tools"
 RD /Q /S "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\System Tools"
 RD /Q /S "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Administrative Tools"
 RD /Q /S "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Administrative Tools"
-RD /Q /S %OneDrive%
+RD /Q /S %ONEDRIVE%
 PowerCFG -Change STANDBY-TIMEOUT-AC 0
 ::OCULTAR CUADRO DE BUSQUEDA DE LA BARRA DE TAREAS
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" -V SearchboxTaskbarMode -T REG_DWORD -D 0 -F
@@ -111,7 +111,7 @@ REG ADD "HKCU\Control Panel\Desktop" -V DragFullWindows -D 0 -F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -V ListviewAlphaSelect -T REG_DWORD -D 0 -F
 ::ELIMINAR TILES EN EL MENU DE INICIO DE APLICACIONES DESINSTALADAS
 REG DELETE "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\CloudStore\Store\Cache\DefaultAccount" /F
-Cls
+CLS
 Echo -----------------------------------------------------
 Echo -- COMPLETADO! - ES NECESARIO REINICIAR EL SISTEMA --
 Echo -----------------------------------------------------
