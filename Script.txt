@@ -6,12 +6,15 @@ PowerShell -Command "Get-AppxPackage *Microsoft.WindowsFeedbackHub* | Remove-App
 PowerShell -Command "Get-AppxPackage *Microsoft.People* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Microsoft.BingWeather* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Microsoft.WindowsSoundRecorder* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *Microsoft.ZuneMusic* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *Microsoft.WindowsMaps* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Microsoft.Messaging* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Microsoft.MicrosoftSolitaireCollection* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Microsoft.GetHelp* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Microsoft.MicrosoftOfficeHub* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Microsoft.Office.OneNote* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Microsoft.MSPaint* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *Microsoft.ZuneVideo* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Microsoft.OneConnect* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Microsoft.MixedReality.Portal* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Microsoft.Getstarted* | Remove-AppxPackage"
@@ -31,6 +34,8 @@ RD /Q /S %ONEDRIVE%
 PowerCFG -Change STANDBY-TIMEOUT-AC 0
 ::OCULTAR CUADRO DE BUSQUEDA DE LA BARRA DE TAREAS
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" -V SearchboxTaskbarMode -T REG_DWORD -D 0 -F
+::OCULTAR ICONO REUNIRSE AHORA DE LA BARRA DE TAREAS
+REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" -V HideSCAMeetNow -T REG_DWORD -D 0 -F
 ::OCULTAR BOTON DE CORTANA DE LA BARRA DE TAREAS
 REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -V ShowCortanaButton -T REG_DWORD -D 0 -F
 ::MOSTRAR BOTON VISTA DE TAREAS OCULTO
