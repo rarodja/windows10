@@ -27,9 +27,9 @@ PowerShell -Command "Get-AppxPackage *Microsoft.549981C3F5F10* | Remove-AppxPack
 PowerShell -Command "Get-AppxPackage *king.com* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *SpotifyAB.SpotifyMusic* | Remove-AppxPackage"
 %WINDIR%\SysWOW64\OneDriveSetup.exe /Uninstall
-RD /Q /S "%APPDATA%\Microsoft\Windows\Start Menu\Programs\System Tools"
 RD /Q /S "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\System Tools"
 RD /Q /S "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Administrative Tools"
+RD /Q /S "%APPDATA%\Microsoft\Windows\Start Menu\Programs\System Tools"
 RD /Q /S "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Administrative Tools"
 RD /Q /S "%PUBLIC%\Desktop"
 RD /Q /S "%ONEDRIVE%"
