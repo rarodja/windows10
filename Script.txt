@@ -62,9 +62,12 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" -V EnableCdp -T REG_DW
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers" -V DisableAutoplay -T REG_DWORD -D 1 -F
 ::MOSTRAR CARPETAS FRECUENTEMENTE USADAS EN EL ACCESO RAPIDO DESACTIVADO
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer" -V ShowFrequent -T REG_DWORD -D 0 -F
-::ESTABLECER TEMA OSCURO POR DEFECTO
-REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -V SystemUsesLightTheme -T REG_DWORD -D 0 -F
-REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -V AppsUseLightTheme -T REG_DWORD -D 0 -F
+::MOSTRAR COLOR EN BARRAS DE TITULO Y BORDES DE VENTANA
+REG ADD "HKCU\Software\Microsoft\Windows\DWM" -V ColorPrevalence -T REG_DWORD -D 1 -F
+::DESACTIVAR EFECTOS DE TRANSPARENCIA
+REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -V EnableTransparency -T REG_DWORD -D 0 -F
+::ESTABLECER TEMA CLARO POR DEFECTO
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -V SystemUsesLightTheme -T REG_DWORD -D 1 -F
 ::MOSTRAR APLICACIONES AGREGADAS RECIENTEMENTE DESACTIVADO
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" -V HideRecentlyAddedApps -T REG_DWORD -D 1 -F
 ::MOSTRAR SUGERENCIAS OCASIONALMENTE EN INICIO DESACTIVADO
