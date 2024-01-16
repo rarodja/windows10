@@ -31,6 +31,5 @@ winget install --id=Git.Git -e && winget install --id=OpenJS.NodeJS.LTS -e
 winget install --id=Microsoft.VisualStudioCode -e && winget install --id=Flywheel.Local -e
 winget install --id=TheDocumentFoundation.LibreOffice -e && winget install --id=Google.Chrome -e
 winget install --id=RARLab.WinRAR -e && winget install --id=appmakes.Typora -e
-git clone https://github.com/antiden/macOS-cursors-for-Windows.git
 PAUSE
 EXIT
