@@ -28,8 +28,8 @@ RMDIR /S /Q "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\System Tools"
 RMDIR /S /Q "%APPDATA%\Microsoft\Windows\Start Menu\Programs\System Tools"
 RMDIR /S /Q %ONEDRIVE%
 winget install --id=Git.Git -e && winget install --id=OpenJS.NodeJS.LTS -e
-winget install --id=Microsoft.VisualStudioCode -e && winget install --id=Flywheel.Local -e
-winget install --id=TheDocumentFoundation.LibreOffice -e && winget install --id=Google.Chrome -e
+winget install --id=Microsoft.VisualStudioCode -e && winget install --id=Microsoft.WindowsTerminal -e
+winget install --id=LeNgocKhoa.Laragon -e && winget install --id=Google.Chrome -e
 winget install --id=RARLab.WinRAR -e && winget install --id=appmakes.Typora -e
 PAUSE
 EXIT
